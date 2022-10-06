@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:include="template :: modelo">
+<body>
+<div th:fragment="conteudo">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Endereço</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contato : ${contatos}">
+            <th scope="row" th:text="${contato.id}"></th>
+            <td th:text="${contato.nome}"></td>
+            <td th:text="${contato.telefone}"></td>
+            <td th:text="${contato.endereco}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
