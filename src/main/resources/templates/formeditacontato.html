@@ -1,0 +1,20 @@
+<html th:include="template :: modelo">
+    <div th:fragment="conteudo">
+        <form action="/gravacontatomodificado" method="post" th:object="${contat}">
+            <input type="hidden" th:field="*{id}">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" th:field="*{nome}">
+            </div>
+            <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço</label>
+                <input type="text" class="form-control" th:field="*{endereco}">
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" th:field="*{telefone}">
+            </div>
+            <button type="submit" class="btn btn-primary">Alterar</button>
+        </form>
+    </div>
+</html>

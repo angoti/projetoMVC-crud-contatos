@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import sistema.model.Contato;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class HomeController {
@@ -56,4 +59,41 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("excluir-contato")
+    public String apagarContato(@RequestParam(value = "id", required = true) Integer cod) {
+        System.out.println("--------------------> " + cod);
+        db.update("delete from contatos where id = ?", cod);
+        return "redirect:/contatos";
+    }
+
+    @GetMapping("editar-contato")
+    public String mostraFormAlteraContato(@RequestParam(value = "id", required = true) Integer cod, Model model) {
+        System.out.println("--------------------> " + cod);
+        Contato contato = db.queryForObject(
+                "select * from contatos where id = ?",
+                (rs, rowNum) -> {
+                    Contato c = new Contato();
+                    c.setId(rs.getInt("id"));
+                    c.setEndereco(rs.getString("endereco"));
+                    c.setNome(rs.getString("nome"));
+                    c.setTelefone(rs.getString("telefone"));
+                    return c;
+                },
+                cod);
+        model.addAttribute("contat", contato);
+        return "formeditacontato";
+    }
+
+    
+    @PostMapping("gravacontatomodificado")
+    public String gravaContatoModificado(Contato contato) {
+        db.update(
+                "update contatos set nome=?, telefone=?, endereco=? where id = ?",
+                contato.getNome(),
+                contato.getTelefone(),
+                contato.getEndereco(),
+                contato.getId());
+        return "redirect:/contatos";
+    }
+    
 }
