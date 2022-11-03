@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import sistema.model.Contato;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
