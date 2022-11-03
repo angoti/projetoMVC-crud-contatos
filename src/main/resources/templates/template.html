@@ -20,11 +20,29 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contatos">Contatos</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Contatos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contatos">Lista de contatos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/novo">Novo contato</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/novo">Novo contato</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tipos de contato
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="tipos">Lista de tipos de contato</a></li>
+                                <li><a class="dropdown-item" href="novo_tipo">Novo tipo</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
