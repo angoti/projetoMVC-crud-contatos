@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html th:include="template :: modelo">
+
+<body>
+    <div th:fragment="conteudo">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tipo : ${tipos}">
+                    <th scope="row" th:text="${tipo.id}"></th>
+                    <td th:text="${tipo.descricao}"></td>
+                    <td>
+                        <a th:href="@{/excluir_tipo(id=${tipo.id})}">Excluir</a>
+                        <a th:href="@{/editar_tipo(id=${tipo.id})}">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

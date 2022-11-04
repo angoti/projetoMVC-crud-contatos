@@ -1,0 +1,12 @@
+<html th:include="template :: modelo">
+
+    <div th:fragment="conteudo">
+        <form action="/novo_tipo" method="post" th:object="${tipo}">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Descrição</label>
+                <input type="text" class="form-control" th:field="*{descricao}">
+            </div>
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </form>
+    </div>
+</html>

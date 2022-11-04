@@ -14,6 +14,17 @@
                 <label for="telefone" class="form-label">Telefone</label>
                 <input type="text" class="form-control" th:field="*{telefone}">
             </div>
+            <div class="mb-3">
+                <label for="tipo.id" class="form-label">Tipo de contato</label>
+                <select th:field="*{tipo.id}" class="form-control">
+                    <option th:each="t : ${tipos}"
+                        th:value="${t.id}"
+                        th:text="${t.descricao}"
+                        th:selected="*{tipo.id}==${t.id}">
+                    </option>
+                </select>
+
+            </div>
             <button type="submit" class="btn btn-primary">Alterar</button>
         </form>
     </div>
